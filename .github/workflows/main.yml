@@ -35,7 +35,7 @@ jobs:
           make submodules
           make BOARD=GENERIC_SPIRAM
           mkdir upload
-          cp build-GENERIC_SPIRAM/firmware.bin build/
+          find build-GENERIC_SPIRAM/ > find.txt
  
       - name: Upload
         uses: crazy-max/ghaction-github-pages@v3
