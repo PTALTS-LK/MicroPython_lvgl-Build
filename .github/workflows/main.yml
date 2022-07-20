@@ -34,11 +34,13 @@ jobs:
           cd ports/esp32
           make submodules
           make BOARD=GENERIC_SPIRAM
+          mkdir upload
+          cp build-GENERIC_SPIRAM/firmware.bin build/
  
       - name: Upload
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: build
-          build_dir: ./lv_micropython/ports/esp32/build-GENERIC_SPIRAM
+          build_dir: ./lv_micropython/ports/esp32/build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
