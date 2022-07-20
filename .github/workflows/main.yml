@@ -31,6 +31,7 @@ jobs:
           source ./esp-idf/export.sh
           cd lv_micropython
           make -C mpy-cross
+          make submodules
           make -C ports/esp32 LV_CFLAGS="-DLV_COLOR_16_SWAP=1" BOARD=GENERIC_SPIRAM deploy
  
       - name: Upload
