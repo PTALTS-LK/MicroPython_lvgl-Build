@@ -27,7 +27,7 @@ jobs:
 
       - name: Build
         run: |
-          source ~/esp/esp-idf/export.sh
+          source ~/esp-idf/export.sh
           cd lv_micropython
           make -C mpy-cross
           make -C ports/esp32 LV_CFLAGS="-DLV_COLOR_16_SWAP=1" BOARD=GENERIC_SPIRAM depoly
