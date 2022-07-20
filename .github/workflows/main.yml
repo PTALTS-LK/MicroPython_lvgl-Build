@@ -13,6 +13,7 @@ jobs:
       - name: clone lvgl
         run: |
           git clone https://github.com/lvgl/lv_micropython.git
+          git clone https://github.com/nexus166/st77xx_mpy.git
           cd lv_micropython
           git submodule update --init --recursive lib/lv_bindings
 
@@ -33,6 +34,7 @@ jobs:
           make -C mpy-cross
           cd ports/esp32
           make submodules
+          make USER_C_MODULES=../../../st77xx_mpy/ all
           make BOARD=GENERIC_SPIRAM
           mkdir upload
           cp build-GENERIC_SPIRAM/firmware.bin upload
