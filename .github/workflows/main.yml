@@ -24,6 +24,7 @@ jobs:
           cd esp-idf
           git checkout v4.4
           git submodule update --init --recursive
+          ./install.sh
 
       - name: Build
         run: |
