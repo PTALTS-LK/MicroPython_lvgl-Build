@@ -35,12 +35,12 @@ jobs:
           make submodules
           make BOARD=GENERIC_SPIRAM
           mkdir upload
-          find build-GENERIC_SPIRAM/ > find.txt
+          find build-GENERIC_SPIRAM > upload/find.txt
  
       - name: Upload
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: build
-          build_dir: ./lv_micropython/ports/esp32/build
+          build_dir: ./lv_micropython/ports/esp32/upload
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
