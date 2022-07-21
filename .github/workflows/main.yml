@@ -33,7 +33,7 @@ jobs:
           make -C mpy-cross
           cd ports/esp32
           make submodules
-          make BOARD=GENERIC_SPIRAM LV_FLAGS="LV_COLOR_16_SWAP=1"
+          make BOARD=GENERIC_SPIRAM LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1"
           mkdir upload
           cp build-GENERIC_SPIRAM/firmware.bin upload
  
