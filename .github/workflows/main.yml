@@ -36,6 +36,9 @@ jobs:
           make BOARD=GENERIC_SPIRAM LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1"
           mkdir upload
           cp build-GENERIC_SPIRAM/firmware.bin upload
+          cp build-GENERIC_SPIRAM/bootloader.bin upload
+          cp build-GENERIC_SPIRAM/partitions.bin upload
+          cp build-GENERIC_SPIRAM/micropython.bin upload
  
       - name: Upload
         uses: crazy-max/ghaction-github-pages@v3
