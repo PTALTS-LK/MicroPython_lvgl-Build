@@ -36,10 +36,17 @@ jobs:
           make BOARD=GENERIC_SPIRAM LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1"
           mkdir upload
           cp build-GENERIC_SPIRAM/firmware.bin upload
-          cp build-GENERIC_SPIRAM/bootloader.bin upload
-          cp build-GENERIC_SPIRAM/partitions.bin upload
-          cp build-GENERIC_SPIRAM/micropython.bin upload
+          mkdir find
+          find build-GENERIC_SPIRAM > find/find.txt
  
+      - name: Upload
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: find
+          build_dir: ./lv_micropython/ports/esp32/find
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload
         uses: crazy-max/ghaction-github-pages@v3
         with:
